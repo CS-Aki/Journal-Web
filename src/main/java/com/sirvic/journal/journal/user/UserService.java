@@ -14,7 +14,7 @@ public class UserService {
     public List<User> displayUser(){
         return List.of(new User(
                 1L,
-                "haerinposahehes",
+                "njposa",
                 "123",
                 "Kang Haerin",
                 "Female",
