@@ -2,9 +2,8 @@ package com.sirvic.journal.journal.user;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 //API Layer
@@ -19,7 +18,12 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> displayUser(){
+    public List<Users> displayUser(){
         return userService.displayUser();
+    }
+
+    @PostMapping
+    public void registerUser(@RequestBody Users user){
+        userService.addNewUser(user);
     }
 }
