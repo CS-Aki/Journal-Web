@@ -1,5 +1,6 @@
 package com.sirvic.journal.journal.user;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,5 +44,24 @@ public class UserService {
 
         repository.deleteById(id);
         System.out.println("Delete Success!");
+    }
+
+    @Transactional
+    public void updateUsername(Long id, String username, String firstName, String lastName) {
+        Users user = repository.findById(id).orElseThrow(() -> new IllegalStateException("User ID does not exist"));
+
+        Optional<Users> usersOptional = repository.findByUsername(username);
+
+        if(user.getUsername().equals(username)){
+            throw new IllegalStateException("Username not changed!");
+        }
+
+        if(usersOptional.isPresent()){
+            throw new IllegalStateException("Username already taken");
+        }
+
+        user.setUsername(username.equals("") ? user.getUsername() : username);
+        user.setFirstName(firstName.equals("") ? user.getFirstName() : firstName);
+        user.setLastName(lastName.equals("") ? user.getLastName() : lastName);
     }
 }

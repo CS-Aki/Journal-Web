@@ -1,5 +1,6 @@
 package com.sirvic.journal.journal.user;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,5 +30,14 @@ public class UserController {
     @DeleteMapping(path = "{id}")
     public void deleteUser(@PathVariable("id") Long id){
         userService.deleteUser(id);
+    }
+
+    @PatchMapping(path = "{id}")
+    public void updateUsername(@PathVariable("id") Long id,
+                               @RequestParam(required = false, defaultValue = "") String username,
+                               @RequestParam(required = false, defaultValue = "") String firstName,
+                               @RequestParam(required = false, defaultValue = "") String lastName
+                               ){
+        userService.updateUsername(id, username, firstName, lastName);
     }
 }
