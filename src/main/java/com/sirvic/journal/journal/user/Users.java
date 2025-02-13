@@ -14,10 +14,6 @@ import java.time.Period;
 )
 public class Users {
     // Can use lombok to reduce the boilerplate codes
-
-//    @SequenceGenerator(
-//
-//    )
     @Id
     @SequenceGenerator(
             name="user_sequence",

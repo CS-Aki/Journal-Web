@@ -22,7 +22,7 @@ public class UserService {
     public List<Users> displayUser(){
         return repository.findAll();
     }
-    
+
     public void addNewUser(Users user) {
         Optional<Users> usersOptional = repository.findByUsername(user.getUsername());
 //      Can change to much more complex error handler
@@ -32,5 +32,16 @@ public class UserService {
 
         repository.save(user);
         System.out.println(user);
+    }
+
+    public void deleteUser(Long id) {
+        boolean isIdExist = repository.existsById(id);
+
+        if(!isIdExist){
+            throw new IllegalStateException("User not found!");
+        }
+
+        repository.deleteById(id);
+        System.out.println("Delete Success!");
     }
 }

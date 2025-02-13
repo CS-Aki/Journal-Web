@@ -1,6 +1,5 @@
 package com.sirvic.journal.journal.user;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,5 +24,10 @@ public class UserController {
     @PostMapping
     public void registerUser(@RequestBody Users user){
         userService.addNewUser(user);
+    }
+
+    @DeleteMapping(path = "{id}")
+    public void deleteUser(@PathVariable("id") Long id){
+        userService.deleteUser(id);
     }
 }
