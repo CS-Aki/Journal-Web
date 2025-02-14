@@ -14,6 +14,7 @@ import static java.time.Month.FEBRUARY;
 
 @Configuration
 public class UserConfig {
+
     @Bean
     CommandLineRunner commandLineRunner(UserRepository repository){
         return args -> {

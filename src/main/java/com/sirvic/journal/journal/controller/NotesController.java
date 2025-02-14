@@ -21,8 +21,15 @@ public class NotesController {
         this.notesService = notesService;
     }
 
-    @GetMapping(path = "{id}")
-    public List<Notes> displayNotes(@PathVariable Long id){
+    @GetMapping
+    public List<Notes> displayAllNotes(){
+        return notesService.displayAllNotes();
+    }
+
+    @GetMapping(path = "{userId}")
+    public List<Notes> displayNotes(@PathVariable("userId") Long id){
         return notesService.displayNotes(id);
     }
+
+
 }
