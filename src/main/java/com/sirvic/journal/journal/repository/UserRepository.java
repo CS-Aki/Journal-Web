@@ -1,7 +1,7 @@
-package com.sirvic.journal.journal.user;
+package com.sirvic.journal.journal.repository;
 
+import com.sirvic.journal.journal.model.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

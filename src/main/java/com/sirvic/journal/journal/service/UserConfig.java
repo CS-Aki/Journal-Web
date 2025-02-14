@@ -1,5 +1,7 @@
-package com.sirvic.journal.journal.user;
+package com.sirvic.journal.journal.service;
 
+import com.sirvic.journal.journal.model.Users;
+import com.sirvic.journal.journal.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

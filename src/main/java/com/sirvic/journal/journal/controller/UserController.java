@@ -1,6 +1,7 @@
-package com.sirvic.journal.journal.user;
+package com.sirvic.journal.journal.controller;
 
-import jakarta.transaction.Transactional;
+import com.sirvic.journal.journal.service.UserService;
+import com.sirvic.journal.journal.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

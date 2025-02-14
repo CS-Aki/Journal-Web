@@ -1,5 +1,7 @@
-package com.sirvic.journal.journal.user;
+package com.sirvic.journal.journal.service;
 
+import com.sirvic.journal.journal.repository.UserRepository;
+import com.sirvic.journal.journal.model.Users;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +21,7 @@ public class UserService {
         this.repository = userRepository;
     }
 
-    @GetMapping
+
     public List<Users> displayUser(){
         return repository.findAll();
     }

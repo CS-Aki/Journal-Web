@@ -1,4 +1,4 @@
-package com.sirvic.journal.journal.user;
+package com.sirvic.journal.journal.model;
 
 import jakarta.persistence.*;
 
