@@ -4,7 +4,7 @@
 
 body{
     background-color: #FCE7C8;
-    margin: 0px;
+
 }
 
 h1{
@@ -15,27 +15,79 @@ h1{
     left: 50px;
 }
 
+a{
+    text-decoration: none;
+}
+
 p{
     font-family: "consolas", "sans-serif";
     color: #03d592;
 }
 
 #index-header{
-    border-bottom: 2px black solid;
+    border-bottom: 3px black solid;
     height: 80px;
     width: 100%;
-    background-color: #F0A04B;
+    background-color: #1ec08c;
+    position: fixed;
 }
+
+button{
+    font-family: "consolas", "sans-serif";
+    border: none;
+    color: #1ec08c;
+    font-size: large;
+    font-weight: bold;
+    background-color: #FCE7C8; 
+    height: 40px;
+    width: 125px;
+    border-radius: 30px;
+}
+
+button:hover{
+    background-color: #b7fa93;
+}
+
+/* button:active{
+    background-color: #fae993;
+} */
 
 #login-btn{
     position: relative;
-    left: 80%;
+    bottom: 15px;
+    margin-right: 2%;
 }
 
 #signup-btn{
+    margin-right: 1%;
     position: relative;
-    left: 90%;
+    bottom: 15px;
 }
+
+#contacts-btn{
+    border-radius: 0px;
+    position: relative;
+    bottom: 15px;
+    color: #FCE7C8;
+    background-color: #1ec08c;
+    font-size: larger;
+}
+
+#about-btn{
+    border-radius: 0px;
+    margin-right: 1%;
+    position: relative;
+    bottom: 15px;
+    color: #FCE7C8;
+    background-color: #1ec08c;
+    font-size: larger;
+}
+
+.nav-header-btn{
+    position: relative;
+    left: 62%;
+}
+
 
 #box1{
     border: 3px black solid;
@@ -44,6 +96,8 @@ p{
     font-size: 22px;
     padding: 10px;
     background-color: #1ec08c;
+    position: relative;
+    top: 100px;
 }
 
 #box2{
@@ -53,7 +107,7 @@ p{
     font-size: 22px;
     padding: 10px;
     background-color: #26b8c8;
+    position: relative;
+    top: 100px;
 }
-
-
 

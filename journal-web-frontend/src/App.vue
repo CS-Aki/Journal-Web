@@ -3,19 +3,23 @@
 </script>
 
 <template>
-  <header id="index-header">
-    <h1>The Journey</h1>
-    <button id="signup-btn">Sign Up</button>
-    <button id="login-btn">Log In</button>
-  </header>
 
-  <div id="box1">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe obcaecati fugiat quidem alias hic officia eius, quia exercitationem consectetur tempora dolorum quasi minus eligendi consequatur aliquid nobis! Facilis, nihil dolorum?
-  </div>
+    <header id="index-header">
+      <a href="#">
+        <div id="header-logo">
+          <!-- Will change this to image later on -->
+          <h1>The Journey</h1> 
+        </div>
+       </a>
+      <div class="nav-header-btn">
+        <button id="contacts-btn">Contacts</button>
+        <button id="about-btn">About Us</button>
+        <button id="signup-btn" type="button">Sign Up</button>
+        <button id="login-btn" type="button">Log In</button>
+      </div>
+    </header>
 
-  <div id="box2">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis perspiciatis tempore culpa quisquam amet qui, aliquid voluptates non doloribus ad numquam est nisi obcaecati fugiat suscipit exercitationem nesciunt, quas eligendi!
-  </div>
 
+  
 
 </template>
