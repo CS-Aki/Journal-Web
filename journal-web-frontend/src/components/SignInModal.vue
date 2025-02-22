@@ -1,4 +1,5 @@
 <script setup>
+import axios from "axios";
 import { ref, defineEmits } from 'vue'
 
 const username = ref("");
@@ -10,9 +11,16 @@ const props = defineProps({
   show: Boolean
 });
 
-const loginUser = () => {
-    console.log(username.value);
-    console.log(password.value);
+const loginUser = async () => {
+    try {
+      const response = await axios.post("http://localhost:5432/api/v1/user", { // ✅ Correct port and URL
+        username: username.value,
+        password: password.value
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
 };
 
 const loginModalRef = ref(null);
@@ -52,7 +60,7 @@ const closeForm = () => {
 
             <div class="modal-footer">
             <slot name="footer">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary" @click="loginUser">Login</button>
                 <button class="btn btn-primary" @click="closeForm">Close</button>
             </slot>
             </div>

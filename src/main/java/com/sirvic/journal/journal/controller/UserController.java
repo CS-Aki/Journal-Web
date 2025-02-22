@@ -1,13 +1,16 @@
 package com.sirvic.journal.journal.controller;
-
 import com.sirvic.journal.journal.service.UserService;
 import com.sirvic.journal.journal.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.Map;
 import java.util.List;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 
 //API Layer
+@CrossOrigin(origins = "http://localhost:5174", allowedHeaders = "*", allowCredentials = "true", 
+    methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping(path = "api/v1/user")
 public class UserController {
@@ -41,4 +44,11 @@ public class UserController {
                                ){
         userService.updateUsername(id, username, firstName, lastName);
     }
+    
+    @PostMapping("/data")
+    public ResponseEntity<String> loginUser(@RequestBody Users user) {
+        System.out.println("User login attempt: " + user.getUsername());
+        return ResponseEntity.ok("Login successful!");
+    }
+
 }

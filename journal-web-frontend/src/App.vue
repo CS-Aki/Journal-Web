@@ -2,11 +2,12 @@
 
 import SignInModal from './components/SignInModal.vue'
 import SignUpModal from './components/SignUpModal.vue'
-
+import axios from "axios";
 import { ref } from 'vue'
 
 const showRegisterModal = ref(false);
 const showLoginModal = ref(false);
+
 
 
   // import SignUpModal from '@/components/SignUpModal.vue'
