@@ -1,5 +1,5 @@
 <script setup>
-
+import axios from "axios";
 import { ref, defineEmits } from 'vue'
 
 const props = defineProps({
@@ -39,12 +39,37 @@ const registerUser = () => {
     console.log("Your age must be 10 years old or older!");
     return;
   }
+
+  sendRegDataToBackend();
+
   console.log(firstName.value);
   console.log(lastName.value);
   console.log(username.value);
   console.log(password.value);
   console.log(gender.value);
   console.log(birthdate.value);
+};
+
+const sendRegDataToBackend = async () => {
+    try {
+      const response = await axios.post("http://localhost:8080/api/v1/user/register", { 
+            firstName: firstName.value,
+            lastName: lastName.value,
+            username: username.value,
+            password: password.value,
+            gender: gender.value,
+            birthdate: birthdate.value
+      },
+      {
+          headers: {
+              "Content-Type": "application/json"
+          }
+      }
+          );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
 };
 
 const signUpRef = ref(null);

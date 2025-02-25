@@ -36,6 +36,7 @@ const closeForm = () => {
     password.value = "";
     emit('close');
 };
+
 </script>
 
 <template>
@@ -66,9 +67,9 @@ const closeForm = () => {
 
             <div class="modal-footer">
             <slot name="footer">
-                <button type="submit" class="btn btn-primary" @click="loginUser">Login</button>
-                <button class="btn btn-primary" @click="closeForm">Close</button>
+                <button type="submit" class="btn btn-primary">Login</button>
             </slot>
+            <button type="button" class="btn btn-primary" @click="closeForm">Close</button>
             </div>
        </form>
       </div>

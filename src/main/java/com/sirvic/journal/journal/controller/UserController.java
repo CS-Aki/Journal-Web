@@ -26,9 +26,13 @@ public class UserController {
     }
 
 
-    @PostMapping
-    public void registerUser(@RequestBody Users user){
+    @PostMapping("/register")
+    public ResponseEntity<String> registerUser(@RequestBody Users user){
+        if(userService.findUsername(user) == true){
+            return ResponseEntity.ok("Username taken");
+        }
         userService.addNewUser(user);
+        return ResponseEntity.ok("Registration Successfully!");
     }
 
     @DeleteMapping(path = "{id}")
@@ -56,7 +60,7 @@ public class UserController {
             }else{
                 return ResponseEntity.ok("There is no match");
             }
-            
     }
+
 
 }
