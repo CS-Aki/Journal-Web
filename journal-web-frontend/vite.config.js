@@ -9,7 +9,8 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  server: {
+  server: { 
+    port: 5175,
     proxy: {
       '/api': {
         target: 'http://localhost:8080', // Your Spring Boot backend

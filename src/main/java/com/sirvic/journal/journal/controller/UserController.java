@@ -9,8 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
 //API Layer
-@CrossOrigin(origins = "http://localhost:5174", allowedHeaders = "*", allowCredentials = "true", 
-    methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+@CrossOrigin(origins = "http://localhost:5175", allowedHeaders = "*", allowCredentials = "true", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping(path = "api/v1/user")
 public class UserController {
@@ -47,8 +46,15 @@ public class UserController {
     
     @PostMapping("/data")
     public ResponseEntity<String> loginUser(@RequestBody Users user) {
-        System.out.println("User login attempt: " + user.getUsername());
-        return ResponseEntity.ok("Login successful!");
+            System.out.println("User login attempt:");
+            System.out.println("Username: " + user.getUsername());
+            System.out.println("Password: " + user.getPassword());
+            if(userService.findUsername(user) == true){
+                return ResponseEntity.ok("Match found");
+            }else{
+                return ResponseEntity.ok("There is no match");
+            }
+            
     }
 
 }

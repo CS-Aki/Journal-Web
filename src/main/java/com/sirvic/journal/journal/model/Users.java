@@ -69,8 +69,7 @@ public class Users {
     private Integer age;
     @Column(
             name="birth_date",
-            nullable = false,
-            columnDefinition = "TEXT"
+            nullable = false
     )
     private LocalDate birthdate;
 
@@ -117,7 +116,7 @@ public class Users {
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public void setUsername(String username) {
@@ -125,7 +124,7 @@ public class Users {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {

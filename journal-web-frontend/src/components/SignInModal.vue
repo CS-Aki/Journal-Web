@@ -13,10 +13,16 @@ const props = defineProps({
 
 const loginUser = async () => {
     try {
-      const response = await axios.post("http://localhost:5432/api/v1/user", { // ✅ Correct port and URL
-        username: username.value,
-        password: password.value
-      });
+      const response = await axios.post("http://localhost:8080/api/v1/user/data", { // ✅ Correct port and URL
+           username: username.value,
+            password: password.value
+      },
+      {
+          headers: {
+              "Content-Type": "application/json" // Ensure JSON format
+          }
+      }
+          );
       console.log(response.data);
     } catch (error) {
       console.error("Error:", error);

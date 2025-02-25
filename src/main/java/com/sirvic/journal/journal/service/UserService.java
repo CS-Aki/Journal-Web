@@ -25,6 +25,16 @@ public class UserService {
         return repository.findAll();
     }
 
+    public boolean findUsername(Users user){
+         Optional<Users> existingUser = repository.findByUsername(user.getUsername());
+        if (existingUser.isPresent()) {
+            return true;
+        } 
+           
+        return false;
+        
+    }
+
     public void addNewUser(Users user) {
         Optional<Users> usersOptional = repository.findByUsername(user.getUsername());
 //      Can change to much more complex error handler
