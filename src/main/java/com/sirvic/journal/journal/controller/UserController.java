@@ -25,6 +25,7 @@ public class UserController {
         return userService.displayUser();
     }
 
+
     @PostMapping
     public void registerUser(@RequestBody Users user){
         userService.addNewUser(user);
@@ -44,11 +45,12 @@ public class UserController {
         userService.updateUsername(id, username, firstName, lastName);
     }
     
-    @PostMapping("/data")
+    @PostMapping("/login")
     public ResponseEntity<String> loginUser(@RequestBody Users user) {
             System.out.println("User login attempt:");
             System.out.println("Username: " + user.getUsername());
             System.out.println("Password: " + user.getPassword());
+
             if(userService.findUsername(user) == true){
                 return ResponseEntity.ok("Match found");
             }else{

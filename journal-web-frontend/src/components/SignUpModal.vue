@@ -14,15 +14,31 @@ const username = ref("");
 const password = ref("");
 const gender = ref("");
 const birthdate = ref("");
+const currentDate = new Date().toISOString().split('T')[0];
 
 const registerUser = () => {
   console.log("Registering user...");
 
   //   Might move this to a different function and use regex instead
-  if(firstName.value.trim() === "" || lastName.value.trim() === "" || username.value.trim() === "" || password.value.trim() === "" || gender.value === "" || birthdate.value === ""){
-    console.log("Invalid input")
+  if(isEmpty()){
+    console.log("Please fill up the empty fields of the form!");
+    return;
   }
 
+  if(hasSpecialChars()){
+    console.log("Special Characters are not allowed on your name!");
+    return;
+  }
+
+  if(invalidBday()){
+    console.log("Birthdate cannot be equal or greater than the current date!");
+    return;
+  }
+
+  if(invalidAge()){
+    console.log("Your age must be 10 years old or older!");
+    return;
+  }
   console.log(firstName.value);
   console.log(lastName.value);
   console.log(username.value);
@@ -46,6 +62,38 @@ const closeForm = () => {
   emit('close');
 };
 
+function isEmpty(){
+  if(firstName.value.trim() === "" || lastName.value.trim() === "" || username.value.trim() === "" || password.value.trim() === "" || gender.value === "" || birthdate.value === ""){
+    return true;
+  }
+  return false;
+}
+
+function hasSpecialChars(){
+  let pattern = /[^A-Za-z .]/;
+  if(firstName.value.search(pattern) != -1 || lastName.value.search(pattern) != -1){
+      return true;
+  }
+  return false;
+}
+
+function invalidBday(){
+  if(birthdate.value >= currentDate){
+    return true;
+  }
+  return false;
+}
+
+function invalidAge(){
+  let year = birthdate.value.substring(0, 4);
+  let temp = currentDate.substring(0,4);
+  let age = temp - year;
+  
+  if(age < 10){
+    return true;
+  }
+  return false;
+}
 
 </script>
 
