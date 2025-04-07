@@ -14,10 +14,11 @@ const username = ref("");
 const password = ref("");
 const gender = ref("");
 const birthdate = ref("");
+
 const currentDate = new Date().toISOString().split('T')[0];
 
 const registerUser = () => {
-  console.log("Registering user...");
+  console.log("Registering user");
 
   //   Might move this to a different function and use regex instead
   if(isEmpty()){
